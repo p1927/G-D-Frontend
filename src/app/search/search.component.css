@@ -1,0 +1,23 @@
+
+.fly{
+
+  position: absolute;
+    top: 0rem;
+    left: 0.75rem;
+
+
+}
+.glassy
+{
+	
+	border-radius: 0px;
+
+
+}
+
+.page-item.active .page-link
+{
+  background-color: #28a745 !important;
+  color:white !important;
+}
+

@@ -1,0 +1,66 @@
+
+
+.selected{
+  background-color: #005606cf;
+    color: white;
+}
+
+.selected hr,.selected span#continent{
+	border-color: rgba(255,255,255,0.4);
+	color: white!important;
+}
+
+
+
+.title{
+	font-size: 1.5rem;
+	font-weight: 800;
+}
+
+.badge{
+    background-color: #009900;
+    color: white;
+    border-radius: 0px;
+	padding: 0.5rem;
+	font-size: 0.7rem;
+	box-shadow: 1px 1px 1px 0px rgba(20,100,60,0.5);
+}
+
+.flag{
+	border: 1px solid rgba(255,255,255,0.3);
+	padding:2px;
+	box-shadow: 1px 0px 9px 0px rgba(20,100,60,0.1);
+	background-color: rgba(255,255,255,0.3);
+
+}
+
+
+
+hr {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media (max-width: 576px)
+{
+.title{
+	font-size: 1rem;
+}
+.body{
+	font-size: 0.8rem;
+}
+
+.list{
+	overflow-y: scroll;
+	max-height: 40vh;
+}
+
+}
+@media (min-width: 577px)
+{
+.list{
+	overflow-y: scroll;
+	height: 77vh;
+}
+	
+}

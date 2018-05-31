@@ -1,0 +1,57 @@
+<div class="card-header pb-1 mb-2 bg-success text-white font-j">Country Details
+</div>
+<div class="card" *ngIf="country==undefined">
+	<div class="card-body text-center font-j reduce_size">
+		Select a country for details.
+	</div>
+</div>
+<div class="card" *ngIf="country!=undefined">
+	<div class="card-body">
+		
+		<div class="row justify-content-center ">
+			<div class="col-8 col-sm-2   col-center">
+				<div class="flag"><img [src]="country.flag" width="100%" alt="No image"/>
+				</div>
+			</div>
+			<div class="col-12 col-sm-10 pl-0 text-center text-lg-left col-center text-success">
+				<div class="title mb-0 mt-2 font-j">{{country.name}}</div>
+				<div class="title mb-0 mt-1 font-j">{{country.nativeName}} </div>
+				
+			</div>
+		</div>
+		<hr class="mt-1 mb-1">
+		<div class="reduce_size">
+			<div class="row ">
+				<div class="col-12 col-md-6 pr-md-0">
+					<div class="row"> <div class="col-5  pr-0 font-j">Region :</div><div class="text-success col-7 pl-0 ">{{country.region}}</div></div>
+					<div class="row"> <div class="col-5 pr-0 font-j">Sub-region :</div><div class="text-success col-7 pl-0">{{country.subregion}}</div></div>
+					<div class="row"> <div class="col-5 pr-0 font-j">Capital :</div><div class="text-success col-7 pl-0">{{country.capital}}</div></div>
+				</div>
+				<div class="col-12 col-md-6 pl-md-1">
+					<div class="row"> <div class="col-5 pr-0 font-j">Area :</div><div class="text-success col-7 pl-0">{{country.area}} sq km</div></div>
+					<div class="row"> <div class="col-5 pr-0 font-j">Population :</div><div class="text-success col-7 pl-0">{{country.population}} people</div></div>
+					<div class="row"> <div class="col-5 pr-0 font-j">Demonym :</div><div class="text-success col-7 pl-0">{{country.demonym}}</div></div>
+				</div>
+			</div>
+			<hr class="mt-1 mb-1">
+			
+			<div class="row ">
+				<div class="col-12 col-md-6 pr-md-0">
+					<div class="row"> <div class="col-5 pr-0 font-j">Call Code :</div><div class="text-success col-7 pl-0">+{{country.callingCodes[0]}}</div></div>
+					<div class="row"> <div class="col-5 pr-0 font-j">Time Zone :</div><div class="text-success col-7 pl-0">{{country.timezones[0]}}</div></div>
+					<div class="row"> <div class="col-5 pr-0 font-j">Currency :</div><div class="text-success col-7 pl-0"><p>{{country.currencies[0].name}}</p>
+					<p>{{country.currencies[0].code}}  {{country.currencies[0].symbol}} </p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-12 col-md-6 pl-md-1">
+			<div class="row"> <div class="col-5 pr-0 font-j">Languages :</div><div class="text-success col-7 pl-0">
+			<p class="text-success" *ngFor="let language of country.languages">{{language.name}} : {{language.nativeName}}</p></div>
+		</div>
+	</div>
+</div>
+<hr class="mt-1 mb-1">
+</div>
+</div>
+</div>

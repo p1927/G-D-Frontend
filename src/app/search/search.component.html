@@ -1,0 +1,33 @@
+<ul class="pagination d-inline-block d-lg-flex text-center fly">
+	
+	<li class="page-item" *ngFor="let letter of alphabet" [ngClass]="{'active':letter==filter_alphabet}" (click)="filter_alphabet=letter;text_filter();"><span class="page-link text-success">{{letter}}</span></li>
+</ul>
+<div class="card-header pb-2 mb-2 bg-success text-white font-j">Filter
+	<button class="btn btn-success ml-2 ml-sm-4 px-1 py-0 float-right" (click)="clear();"><span class="fa fa-times fa-lg"></span> <span class="d-none d-md-inline"> Clear</span></button>
+	<div class="btn-group pull-right ">
+		<span  class="btn btn-success px-1 py-0">{{filter_region}}</span>
+		<button type="button" class="btn btn-success px-1 py-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<span class="sr-only">Toggle Dropdown</span>
+		</button>
+		<div class="dropdown-menu">
+			<span class="dropdown-item" (click)="filter_region=region; filterByRegion();" *ngFor="let region of regions">{{region}}</span>
+		</div>
+	</div>
+	
+</div>
+<div class="card glassy">
+	<div class="card-body">
+		
+		<div class="font text-success font-weight-bold reduce_size">WE <span class="text-warning"> HELP</span> YOU TO KNOW MORE</div>
+		<div class=" font text-success mb-1" style="font-size: 0.8rem;">Search for any country or capital !</div>
+		
+		<div class="input-group">
+			
+			<div class="input-group-prepend d-inline">
+				<span  class=" input-group-text fa fa-search"  ></span>
+			</div>
+			<input type="text" name="search" class="form-control" placeholder="Search" [(ngModel)]="search_text" (input)="search(search_text);">
+		</div>
+		
+	</div>
+</div>

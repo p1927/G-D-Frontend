@@ -1,0 +1,33 @@
+<div class="card-header pb-2 mb-2 bg-success text-white font-j" (click)="list_view=!list_view;">Countries
+	
+	<span class="fa float-right" [ngClass]="{'fa-angle-double-down': list_view==false,'fa-angle-double-up': list_view==true}" ></span>
+</div>
+<div class="list" *ngIf="list_view==true">
+	<div class="card" *ngIf="listdata.length==0">
+		<div class="card-body text-center font-j reduce_size">
+			Filter: No Country Matched!
+		</div>
+	</div>
+	<div  class="card mb-2" *ngFor="let country of listdata" (click)="select(country);" [ngClass]="{'selected': country==selected}">
+		
+		<div class="card-body pt-1 pb-1">
+			
+			<div class="row">
+				<div class="col-3 pl-1  col-center">
+					<div class="flag"><img [src]="country.flag" width="100%" alt="No image"/>
+					</div>
+				</div>
+				<div class="col-9 pl-0 col-center font-j">
+					<p class="title mb-0">{{country.name}}</p>
+					<hr class="mt-0 mb-1">
+					<div class="body">
+						<span id="continent" class="text-success d-none d-md-block float-right">{{country.region}}</span>
+						<p class="mb-1">{{country.capital}}</p>
+						
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>

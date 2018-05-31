@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+body{
+	background-color: rgb(238, 244, 237);
+
+}
+
+.font-j
+{
+font-family: 'Julius Sans One', sans-serif;
+}
+
+.col-center{
+	  display: flex ;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 992px)
+{
+.reduce_size{
+	font-size: 80%!important;
+}
+}
