@@ -8,8 +8,13 @@ import { DataService } from '../data.service';
 })
 export class ListComponent implements OnInit {
 
+/* Variable to hide/display countries list*/
 list_view: boolean=true;
+
+/* Variable for list*/
 listdata: any[]=[];
+
+/* Variable for selected country*/
 selected: any;
 
   constructor(private data: DataService) { }
@@ -21,6 +26,7 @@ selected: any;
        
   }
 
+/* Get list of data*/
  getList(): void {
 
     this.data.list_service.subscribe(data => {this.listdata = data;
@@ -29,12 +35,14 @@ selected: any;
        
   }
 
+/* Get selected country*/
    getSelected(): void {
 
     this.data.selected_service.subscribe(data => {this.selected = data; });
        
   }
 
+/* Set selected country*/
     select(data:any) {
     this.data.updateSelected(data)
   }

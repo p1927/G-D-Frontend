@@ -8,18 +8,25 @@ import { DataService } from '../data.service';
 })
 export class SearchComponent implements OnInit {
 
+/* Alphabet filter  values*/
 alphabet: string[]=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
+/* Alphabet filter selected alphabet */
 filter_alphabet:string;
 
+/* Region filter : filter_region: Selected Region, regions: Array of regions in data*/
 filter_region:string="Region";
 regions: string[]=[];
 
+/* Search filter: search_text: Input text, name_matched,city_matched: boolean variables for comparison and pushing values*/
 search_text: string="";
 name_matched: boolean=true;
 city_matched: boolean=true;
 
+/* Sorted API data from DataURl*/
 API_data: any[]=[];
+
+/* Data  values used by array after applying filter*/
 filtered_data: any[]=[];
 
   constructor(private data: DataService) { }
@@ -28,6 +35,7 @@ filtered_data: any[]=[];
         
   }
 
+/* Function to get data, sort it into API_data, and set it to list*/
  getData(): void {
 
     this.data.getdata()
@@ -38,10 +46,12 @@ filtered_data: any[]=[];
        
   }
 
+/* Function to set data into the list*/
    filter(data: any[]) : void{
     this.data.updateList(data);
   }
 
+/* Function Alphabat filter */
 text_filter() : void { 
   this.search_text="";
   this.filtered_data=[];
@@ -54,6 +64,7 @@ text_filter() : void {
 
 }
 
+/* Function Clear button*/
 clear():void {
  this.filter_region="Region";
   this.filter_alphabet="";
@@ -63,6 +74,7 @@ clear():void {
   this.search_text="";
 }
 
+/* Function Search bar on Input*/
 search(text:any): void {
  
 this.filtered_data=[];
@@ -70,10 +82,12 @@ this.filter_alphabet="";
   for (let entry of this.API_data) { 
   this.name_matched=true;
    this.city_matched=true;
+   /* Loop for matching country name*/
               for (let index in text) { 
                      if(entry.name.charAt(index).toLowerCase()!=text.charAt(parseInt(index)).toLowerCase()) { 
                                                     this.name_matched=false; break; }
                                         }
+                                        /* Loop formatching capital name*/
   if(this.name_matched==false){
               for (let index in text) { 
                      if(entry.capital.charAt(index).toLowerCase()!=text.charAt(parseInt(index)).toLowerCase()) { 
@@ -88,6 +102,7 @@ this.filter_alphabet="";
 
 }
 
+/* Function for comparison, used in sort function to arrange alphabetically*/
 compare(a:any, b:any) {
   const A = a.name.toUpperCase();
   const B = b.name.toUpperCase();
@@ -101,6 +116,7 @@ compare(a:any, b:any) {
   return comparison;
 }
 
+/* Function to get list of regions in data*/
 get_Region():void{
   for (let entry of this.API_data) { 
     if(entry.region!=""&&this.regions.indexOf(entry.region)==-1)
@@ -108,6 +124,7 @@ get_Region():void{
      }
      }
 
+/* Function filter by region*/
 filterByRegion():void{ 
     this.filtered_data=[];
 this.filter_alphabet="";

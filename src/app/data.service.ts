@@ -11,7 +11,7 @@ export class DataService {
 
 private dataUrl = 'https://restcountries.eu/rest/v2/all';  // URL to web api
 
-private list_dataSource = new BehaviorSubject<any[]>([]);
+private list_dataSource = new BehaviorSubject<any[]>([]);  
 private selected_dataSource = new BehaviorSubject<any>({});
 
 
@@ -22,11 +22,12 @@ selected_service = this.selected_dataSource.asObservable();
   constructor(private http: HttpClient) { }
 
 
-
+/* SET data as list */
     updateList(data: any[]) {
     this.list_dataSource.next(data);
   }
 
+/* SET data as selected */
       updateSelected(data: any) {
     this.selected_dataSource.next(data);
   }
@@ -34,7 +35,7 @@ selected_service = this.selected_dataSource.asObservable();
 
 
 
-/** GET data from the server */
+/* GET data from the server */
   getdata (): Observable<any[]> { 
     return this.http.get<any[]>(this.dataUrl)
           .pipe(
@@ -49,8 +50,8 @@ selected_service = this.selected_dataSource.asObservable();
    private handleError<T> (operation = 'operation', result?: T) { 
     return (error: any): Observable<T> => {
  
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
+      
+      console.error(error); // log to console 
  
       // TODO: better job of transforming error for user consumption
       console.log(`${operation} failed: ${error.message}`);

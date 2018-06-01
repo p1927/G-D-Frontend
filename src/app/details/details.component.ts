@@ -7,6 +7,7 @@ import { DataService } from '../data.service';
 })
 export class DetailsComponent implements OnInit {
 
+/* Variable for selected country*/
 country: any={}
 
   constructor(private data: DataService) { }
