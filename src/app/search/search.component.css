@@ -21,3 +21,12 @@
   color:white !important;
 }
 
+@media (max-width:992px)
+{
+.page-link{
+	padding-top: 0.07rem;
+	padding-bottom: 0.07rem;
+}
+
+
+}
