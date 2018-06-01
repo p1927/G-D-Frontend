@@ -76,8 +76,8 @@ clear():void {
 
 /* Function Search bar on Input*/
 search(text:any): void {
- 
 this.filtered_data=[];
+this.filter_region="Region";
 this.filter_alphabet="";
   for (let entry of this.API_data) { 
   this.name_matched=true;
